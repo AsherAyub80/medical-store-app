@@ -1,16 +1,22 @@
-# medical_store_app
+# Medical Store App
 
-A new Flutter project.
+## Description
+The Medical Store App is a Flutter practice project showcasing basic mobile app development skills. This project focuses on creating a user-friendly interface for managing inventory in a medical store. Key features include adding, editing, and deleting medical products, as well as displaying a list of available products.
 
-## Getting Started
+### Key Features
+- **Inventory Management:** Add, edit, and delete medical products.
+- **List Display:** View a list of available products.
 
-This project is a starting point for a Flutter application.
+## Technologies Used
+- **Flutter SDK:** Developed using Flutter framework for cross-platform mobile app development.
+- **Provider Package:** State management for Flutter applications.
+- **Material Design:** UI/UX design principles for intuitive user interaction.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This project serves as a foundational exercise in Flutter app development, focusing on practical usage scenarios without utilizing complex databases or authentication functionalities.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Feel free to explore the code, suggest improvements, or use parts of it for learning purposes. Contributions and feedback are welcomed!
+
+- ### Connect with me
+- Github: [Asher Ayub](https://github.com/AsherAyub80)
+- LinkedIn: [Asher Ayub](https://www.linkedin.com/in/asher-ayub-39b376245/)
