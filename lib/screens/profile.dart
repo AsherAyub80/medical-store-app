@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -91,6 +92,19 @@ class Profile extends StatelessWidget {
                 width: width,
                 title: 'Faq',
                 image: 'images/faq.png'),
+            SizedBox(
+              height: height * 0.04,
+            ),
+            GestureDetector(
+              onTap: () {
+                FirebaseAuth.instance.signOut();
+              },
+              child: Profilewidget(
+                  height: height,
+                  width: width,
+                  title: 'Sign Out',
+                  image: 'images/logout.png'),
+            ),
           ],
         ),
       ),

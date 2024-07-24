@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medical_store_app/components/mycontainer.dart';
 import 'package:medical_store_app/components/on_board_model.dart';
-import 'package:medical_store_app/screens/sign_in_screen.dart';
+import 'package:medical_store_app/page/auth_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardscreen extends StatefulWidget {
@@ -129,7 +129,7 @@ class _OnBoardscreenState extends State<OnBoardscreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => SignInScreen(),
+        builder: (context) => AuthPage(),
       ),
     );
   }

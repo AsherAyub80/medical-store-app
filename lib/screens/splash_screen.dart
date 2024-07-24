@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:medical_store_app/main.dart';
+import 'package:medical_store_app/page/auth_page.dart';
 import 'package:medical_store_app/screens/on_boardscreen.dart';
-import 'package:medical_store_app/screens/sign_in_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
             context,
             MaterialPageRoute(
                 builder: (context) =>
-                    isShow ? OnBoardscreen() : SignInScreen())));
+                    isShow ? OnBoardscreen() : AuthPage())));
   }
 
   @override

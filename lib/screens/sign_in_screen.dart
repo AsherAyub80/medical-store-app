@@ -1,11 +1,26 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_store_app/components/my_button.dart';
 import 'package:medical_store_app/screens/otp_screen.dart';
 
-TextEditingController passController = TextEditingController();
-
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatefulWidget {
   SignInScreen({super.key});
+
+  static String verify = '';
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+  TextEditingController countryCodeController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    countryCodeController.text = '+92';
+  }
+
+  var phone = '';
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +69,11 @@ class SignInScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(30.0),
-                child: TextFormField(
+                child: TextField(
+                  onChanged: (value) {
+                    phone = value;
+                  },
                   keyboardType: TextInputType.phone,
-                  controller: passController,
                   decoration: InputDecoration(
                     hintText: '+92 3021372222',
                     hintStyle: const TextStyle(
@@ -83,23 +100,18 @@ class SignInScreen extends StatelessWidget {
               MyButton(
                 height: height * 0.09,
                 width: width * 0.9,
-                onTap: () {
-                  if (passController.text.isNotEmpty) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => OtpScreen()));
-                  } else {
-                    showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                                content: Text('Please enter mobile number'),
-                                actions: [
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text('ok')),
-                                ]));
-                  }
+                onTap: () async {
+                  await FirebaseAuth.instance.verifyPhoneNumber(
+                    phoneNumber: countryCodeController.text + phone,
+                    verificationCompleted: (PhoneAuthCredential credential) {},
+                    verificationFailed: (FirebaseAuthException e) {},
+                    codeSent: (String verificationId, int? resendToken) {
+                      SignInScreen.verify = verificationId;
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => OtpScreen()));
+                    },
+                    codeAutoRetrievalTimeout: (String verificationId) {},
+                  );
                 },
                 text: 'Continue',
               ),
